@@ -4,112 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FluxusNova</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Exo+2:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: rgb(8, 12, 18);
-            --secondary: rgb(16, 20, 28);
-            --accent: rgb(24, 28, 40);
-            --highlight: rgb(0, 150, 255);
-            --highlight-glow: rgb(80, 180, 255);
-            --light: rgb(248, 250, 252);
-            --dark: rgb(4, 6, 10);
-            --success: rgb(0, 200, 83);
-            --warning: rgb(255, 160, 0);
-            --info: rgb(0, 120, 255);
-            --text: rgb(230, 235, 240);
-            --text-secondary: rgb(150, 160, 175);
-            --gradient-primary: linear-gradient(135deg, rgb(8, 12, 18) 0%, rgb(16, 20, 28) 100%);
-            --gradient-secondary: linear-gradient(135deg, rgb(16, 20, 28) 0%, rgb(24, 28, 40) 100%);
-            --gradient-accent: linear-gradient(135deg, rgb(0, 150, 255) 0%, rgb(80, 180, 255) 100%);
-            --gradient-card: linear-gradient(135deg, rgba(24, 28, 40, 0.9) 0%, rgba(0, 150, 255, 0.1) 100%);
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
-            --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+            --primary: #0f172a;
+            --secondary: #1e293b;
+            --accent: #334155;
+            --highlight: #7c3aed;
+            --light: #f8fafc;
+            --dark: #020617;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --text: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --gradient-primary: linear-gradient(135deg, #0f172a, #1e293b);
+            --gradient-accent: linear-gradient(135deg, #7c3aed, #a855f7);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
         }
         
         body {
-            background-color: var(--primary);
+            background-color: var(--dark);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* Background dengan bintang-bintang yang sederhana */
-        .stars-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            opacity: 0.3;
-        }
-        
-        .star {
-            position: absolute;
-            background-color: rgb(255, 255, 255);
-            border-radius: 50%;
-            animation: subtle-twinkle 8s infinite ease-in-out;
-        }
-        
-        @keyframes subtle-twinkle {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.7; }
-        }
-        
-        /* Efek nebula yang halus */
-        .nebula {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            opacity: 0.1;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(0, 150, 255, 0.1) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(80, 180, 255, 0.05) 0%, transparent 40%);
-            animation: subtle-float 30s infinite ease-in-out;
-        }
-        
-        @keyframes subtle-float {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-5px, 5px); }
-        }
-        
-        /* Animasi Fade In yang halus */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-        
-        .fade-in-delay-1 {
-            animation: fadeIn 0.8s ease 0.2s forwards;
-            opacity: 0;
-        }
-        
-        .fade-in-delay-2 {
-            animation: fadeIn 0.8s ease 0.4s forwards;
-            opacity: 0;
-        }
-        
-        .fade-in-delay-3 {
-            animation: fadeIn 0.8s ease 0.6s forwards;
-            opacity: 0;
+            font-family: 'Exo 2', sans-serif;
         }
         
         .container {
@@ -118,18 +43,152 @@
             padding: 0 15px;
         }
         
+        /* Animasi Fade In */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Animasi Slide In */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        /* Animasi Bounce */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        /* Animasi Pulse */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Animasi Rotate */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Animasi Glow */
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px var(--highlight); }
+            50% { box-shadow: 0 0 20px var(--highlight); }
+            100% { box-shadow: 0 0 5px var(--highlight); }
+        }
+        
+        /* Animasi Float */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* Animasi Text Glow */
+        @keyframes textGlow {
+            0% { text-shadow: 0 0 5px rgba(124, 58, 237, 0.5); }
+            50% { text-shadow: 0 0 15px rgba(124, 58, 237, 0.8), 0 0 20px rgba(124, 58, 237, 0.6); }
+            100% { text-shadow: 0 0 5px rgba(124, 58, 237, 0.5); }
+        }
+        
+        /* Animasi Gradient Shift */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Animasi Neon */
+        @keyframes neon {
+            0%, 100% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--highlight), 0 0 20px var(--highlight);
+            }
+            50% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--highlight), 0 0 40px var(--highlight);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+        
+        .fade-in-delay-1 {
+            animation: fadeIn 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .fade-in-delay-2 {
+            animation: fadeIn 1s ease 0.4s forwards;
+            opacity: 0;
+        }
+        
+        .fade-in-delay-3 {
+            animation: fadeIn 1s ease 0.6s forwards;
+            opacity: 0;
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s ease forwards;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s ease forwards;
+        }
+        
+        .bounce {
+            animation: bounce 1s;
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        .rotate {
+            animation: rotate 2s linear infinite;
+        }
+        
+        .glow {
+            animation: glow 2s infinite;
+        }
+        
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .text-glow {
+            animation: textGlow 2s ease-in-out infinite;
+        }
+        
+        .neon {
+            animation: neon 1.5s ease-in-out infinite alternate;
+        }
+        
+        .gradient-shift {
+            background: linear-gradient(-45deg, #0f172a, #1e293b, #334155, #7c3aed);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+        }
+        
         /* Header Styles */
         header {
-            background: rgba(8, 12, 18, 0.9);
-            color: var(--text);
+            background: var(--gradient-primary);
+            color: white;
             padding: 1rem 0;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(0, 150, 255, 0.2);
-            backdrop-filter: blur(10px);
         }
         
         .header-content {
@@ -147,7 +206,7 @@
         }
         
         .logo:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
         
         .logo i {
@@ -157,16 +216,19 @@
         }
         
         .logo:hover i {
-            transform: rotate(10deg);
+            transform: rotate(15deg);
         }
         
         .logo h1 {
             font-size: 1.8rem;
-            font-weight: 600;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
             background: var(--gradient-accent);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            animation: textGlow 3s ease-in-out infinite;
+            letter-spacing: 1px;
         }
         
         .nav-menu {
@@ -176,13 +238,16 @@
         }
         
         .nav-menu a {
-            color: var(--text-secondary);
+            color: white;
             text-decoration: none;
             font-weight: 500;
             padding: 8px 15px;
-            border-radius: 6px;
+            border-radius: 4px;
             transition: all 0.3s ease;
             position: relative;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         
         .nav-menu a::after {
@@ -192,7 +257,7 @@
             height: 2px;
             bottom: 0;
             left: 50%;
-            background: var(--gradient-accent);
+            background-color: var(--highlight);
             transition: all 0.3s ease;
         }
         
@@ -209,7 +274,7 @@
             display: none;
             background: none;
             border: none;
-            color: var(--text);
+            color: white;
             font-size: 1.5rem;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -222,37 +287,49 @@
         
         /* Hero Section */
         .hero {
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(0, 150, 255, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(24, 28, 40, 0.05) 0%, transparent 50%),
-                var(--gradient-primary);
-            color: var(--text);
-            padding: 5rem 0;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.85)), url('https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
             text-align: center;
             margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 65%, rgba(124, 58, 237, 0.1) 70%, transparent 75%);
+            animation: shine 3s infinite linear;
+        }
+        
+        @keyframes shine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
         
         .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto;
             color: var(--text-secondary);
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 400;
         }
         
         /* Dashboard Cards */
@@ -264,21 +341,34 @@
         }
         
         .card {
-            background: var(--gradient-card);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
+            background: var(--gradient-primary);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             padding: 1.5rem;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 150, 255, 0.2);
+            border-left: 4px solid var(--highlight);
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card:hover::before {
+            left: 100%;
         }
         
         .card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(80, 180, 255, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
         
         .card-icon {
@@ -289,34 +379,36 @@
         }
         
         .card:hover .card-icon {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         
         .card h3 {
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
-            color: var(--text);
+            color: var(--highlight);
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         
         .card p {
             color: var(--text-secondary);
+            font-family: 'Exo 2', sans-serif;
         }
         
         /* Section Styles */
         .section {
-            background: var(--gradient-card);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
+            background: var(--gradient-primary);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             padding: 1.5rem;
             margin-bottom: 2rem;
-            border: 1px solid rgba(0, 150, 255, 0.2);
+            border-top: 3px solid var(--highlight);
             transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
         }
         
         .section:hover {
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(80, 180, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
         
         .section-header {
@@ -325,45 +417,44 @@
             align-items: center;
             margin-bottom: 1.5rem;
             padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(0, 150, 255, 0.2);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
         }
         
         .section-title {
             font-size: 1.5rem;
-            color: var(--text);
+            color: var(--highlight);
             display: flex;
             align-items: center;
             gap: 10px;
-        }
-        
-        .section-title i {
-            color: var(--highlight);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         
         /* Table Styles */
         .table-responsive {
             overflow-x: auto;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
             min-width: 600px;
-            background: var(--secondary);
         }
         
         th, td {
             padding: 12px 15px;
             text-align: left;
-            border-bottom: 1px solid rgba(0, 150, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: 'Exo 2', sans-serif;
         }
         
         th {
-            background-color: var(--accent);
-            color: var(--text);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--highlight);
             font-weight: 600;
+            font-family: 'Rajdhani', sans-serif;
+            letter-spacing: 0.5px;
         }
         
         tr {
@@ -371,7 +462,8 @@
         }
         
         tr:hover {
-            background-color: rgba(0, 150, 255, 0.05);
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateX(5px);
         }
         
         /* Piket Grid */
@@ -382,29 +474,31 @@
         }
         
         .piket-card {
-            background: var(--secondary);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 8px;
             padding: 1rem;
             text-align: center;
-            border: 1px solid rgba(0, 150, 255, 0.2);
+            border-left: 4px solid var(--highlight);
             transition: all 0.3s ease;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
         
         .piket-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(80, 180, 255, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         .piket-day {
             font-weight: 600;
             color: var(--highlight);
             margin-bottom: 0.5rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         
         .piket-members {
-            color: var(--text-secondary);
+            font-family: 'Exo 2', sans-serif;
+            color: var(--text);
         }
         
         /* Jadwal Styles */
@@ -416,15 +510,13 @@
             margin-bottom: 2rem;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 150, 255, 0.2);
         }
         
         .jadwal-hari:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(80, 180, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
         
         .jadwal-hari:last-child {
@@ -433,11 +525,13 @@
         
         .hari-header {
             background: var(--gradient-accent);
-            color: var(--light);
+            color: white;
             font-weight: 600;
             padding: 15px;
             text-align: center;
             font-size: 1.2rem;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
         }
         
         .jadwal-grid {
@@ -445,117 +539,151 @@
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 10px;
             padding: 15px;
-            background: var(--secondary);
+            background: rgba(255, 255, 255, 0.05);
         }
         
         .mapel-item {
-            background: var(--secondary);
+            background: rgba(255, 255, 255, 0.05);
             padding: 15px 10px;
             border-radius: 8px;
             text-align: center;
-            border: 1px solid rgba(0, 150, 255, 0.2);
+            border-left: 4px solid var(--highlight);
             transition: all 0.3s ease;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-        }
-        
-        .mapel-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-            border-color: rgba(80, 180, 255, 0.4);
-        }
-        
-        .mapel-nama {
-            font-weight: 600;
-            color: var(--text);
-            margin-bottom: 5px;
-        }
-        
-        .mapel-waktu {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-        
-        /* Struktur Kelas - DIPERBAIKI DENGAN 4 BAGIAN UTAMA */
-        .struktur-kelas {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-        }
-        
-        .struktur-utama {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            width: 100%;
-            max-width: 800px;
-        }
-        
-        .struktur-item {
-            background: var(--secondary);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 2px solid rgba(0, 150, 255, 0.3);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             position: relative;
             overflow: hidden;
         }
         
-        .struktur-item::before {
+        .mapel-item::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 150, 255, 0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(124, 58, 237, 0.1), transparent);
             transition: left 0.5s;
         }
         
-        .struktur-item:hover::before {
+        .mapel-item:hover::before {
             left: 100%;
         }
         
-        .struktur-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
-            border-color: rgba(80, 180, 255, 0.6);
+        .mapel-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
-        .struktur-item.wali-kelas {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, var(--secondary) 0%, rgba(0, 150, 255, 0.2) 100%);
+        .mapel-nama {
+            font-weight: 600;
+            color: var(--text); /* Diubah menjadi putih */
+            margin-bottom: 5px;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         
-        .struktur-item h3 {
-            font-size: 1.3rem;
+        .mapel-waktu {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-family: 'Exo 2', sans-serif;
+        }
+        
+        /* Struktur Kelas */
+        .struktur-kelas {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .wali-kelas {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            border: 2px solid var(--highlight);
+            transition: all 0.3s ease;
+        }
+        
+        .wali-kelas:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .wali-kelas h3, .ketua h3, .wakil h3, .seksi-card h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
             color: var(--highlight);
-            margin-bottom: 1rem;
         }
         
-        .struktur-item p {
-            font-size: 1.1rem;
+        .wali-kelas p, .ketua p, .wakil p, .seksi-card p {
+            font-family: 'Exo 2', sans-serif;
             color: var(--text);
-            font-weight: 500;
+        }
+        
+        .ketua-kelas {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .ketua, .wakil {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            flex: 1;
+            margin: 0 10px;
+            border: 2px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+        
+        .ketua:hover, .wakil:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .seksi {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            width: 100%;
+        }
+        
+        .seksi-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--info);
+            transition: all 0.3s ease;
+        }
+        
+        .seksi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
         /* Footer */
         footer {
             background: var(--dark);
-            color: var(--text);
+            color: white;
             padding: 2rem 0;
             text-align: center;
             margin-top: 2rem;
-            border-top: 1px solid rgba(0, 150, 255, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .footer-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
         
         .footer-logo {
@@ -564,72 +692,76 @@
             gap: 10px;
             font-size: 1.5rem;
             transition: transform 0.3s ease;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
         
         .footer-logo:hover {
-            transform: scale(1.03);
+            transform: scale(1.05);
         }
         
-        .social-links {
+        .footer-sections {
             display: flex;
-            gap: 15px;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+            gap: 2rem;
         }
         
-        .social-links a {
-            color: var(--text-secondary);
+        .footer-section {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .footer-section-title {
             font-size: 1.2rem;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .social-links a:hover {
             color: var(--highlight);
-            transform: translateY(-2px);
+            margin-bottom: 1rem;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.5px;
         }
         
-        /* RGB Elements */
-        .rgb-element {
-            position: fixed;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.1;
-            z-index: -1;
-            animation: rgb-move 15s infinite ease-in-out;
+        .support-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         
-        .rgb-1 {
-            background: rgb(0, 150, 255);
-            top: 10%;
-            left: 10%;
+        .support-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
         }
         
-        .rgb-2 {
-            background: rgb(0, 255, 150);
-            top: 60%;
-            right: 10%;
-            animation-delay: -5s;
+        .support-link:hover {
+            background: rgba(124, 58, 237, 0.2);
+            transform: translateY(-3px);
         }
         
-        .rgb-3 {
-            background: rgb(255, 0, 150);
-            bottom: 20%;
-            left: 20%;
-            animation-delay: -10s;
+        .support-link i {
+            font-size: 1.2rem;
         }
         
-        @keyframes rgb-move {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(30px, -20px) scale(1.1); }
-            50% { transform: translate(-20px, 30px) scale(0.9); }
-            75% { transform: translate(20px, 20px) scale(1.05); }
+        .footer-text {
+            font-family: 'Exo 2', sans-serif;
         }
         
         /* Responsive Styles */
         @media (max-width: 992px) {
             .hero h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .hero p {
@@ -659,15 +791,13 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(8, 12, 18, 0.95);
+                background: var(--gradient-primary);
                 padding: 1rem 0;
                 text-align: center;
                 gap: 0;
                 margin-top: 0;
-                box-shadow: var(--shadow);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 z-index: 99;
-                border-top: 1px solid rgba(0, 150, 255, 0.2);
-                backdrop-filter: blur(10px);
             }
             
             .nav-menu.active {
@@ -702,8 +832,13 @@
                 grid-template-columns: 1fr;
             }
             
-            .struktur-utama {
-                grid-template-columns: 1fr;
+            .ketua-kelas {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .ketua, .wakil {
+                margin: 0;
             }
             
             .piket-grid {
@@ -714,10 +849,9 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .rgb-element {
-                width: 150px;
-                height: 150px;
-                filter: blur(40px);
+            .footer-sections {
+                flex-direction: column;
+                gap: 1.5rem;
             }
         }
         
@@ -746,10 +880,8 @@
                 grid-template-columns: 1fr;
             }
             
-            .rgb-element {
-                width: 100px;
-                height: 100px;
-                filter: blur(30px);
+            .seksi {
+                grid-template-columns: 1fr;
             }
         }
         
@@ -773,21 +905,12 @@
     </style>
 </head>
 <body>
-    <!-- Background Elements -->
-    <div class="stars-background" id="starsBackground"></div>
-    <div class="nebula"></div>
-    
-    <!-- RGB Background Elements -->
-    <div class="rgb-element rgb-1"></div>
-    <div class="rgb-element rgb-2"></div>
-    <div class="rgb-element rgb-3"></div>
-
     <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
                 <div class="logo fade-in">
-                    <i class="fas fa-rocket"></i>
+                    <i class="fas fa-rocket float"></i>
                     <h1>FluxusNova</h1>
                 </div>
                 <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -807,10 +930,8 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content">
-                <h2 class="fade-in">Kelas XI RPL 2</h2>
-                <p class="fade-in-delay-1">"Dengan semangat kebersamaan, kami melangkah maju menuju masa depan gemilang." Bersatu kita teguh, bercerai kita runtuh. Mari wujudkan kelas yang berprestasi dan berkarakter!</p>
-            </div>
+            <h2 class="fade-in neon">Kelas XI RPL 2</h2>
+            <p class="fade-in-delay-1">"Dengan semangat kebersamaan, kami melangkah maju menuju masa depan gemilang." Bersatu kita teguh, bercerai kita runtuh. Mari wujudkan kelas yang berprestasi dan berkarakter!</p>
         </div>
     </section>
 
@@ -861,39 +982,134 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Data siswa tetap sama -->
-                        <tr><td>1</td><td>ABDILLAH MUHANNAD AL FUZEA</td></tr>
-                        <tr><td>2</td><td>AHMAD DWI ANDIKA PUTRA</td></tr>
-                        <tr><td>3</td><td>ANANDA RESTU KURNIA SANDI</td></tr>
-                        <tr><td>4</td><td>ANANDITA VINZA PURWANDINI</td></tr>
-                        <tr><td>5</td><td>ANDRIAN SAPUTRI</td></tr>
-                        <tr><td>6</td><td>AURA KASIH FARADITA</td></tr>
-                        <tr><td>7</td><td>BAGAS TRI WIDIANTO</td></tr>
-                        <tr><td>8</td><td>BAYU PUTRA YUDHA PRATAMA</td></tr>
-                        <tr><td>9</td><td>BRYANSYAH HUTAMA PUTRA</td></tr>
-                        <tr><td>10</td><td>CHOIRUL ANAM FIRMANSYAH</td></tr>
-                        <tr><td>11</td><td>CINDY EKA MAHARDITA</td></tr>
-                        <tr><td>12</td><td>CYNTHIA WANDARI JULIANA</td></tr>
-                        <tr><td>13</td><td>DELA AULIA SINTYA DINI</td></tr>
-                        <tr><td>14</td><td>DINA FEBRIANI</td></tr>
-                        <tr><td>15</td><td>EKA APRILIA CAHYANI</td></tr>
-                        <tr><td>16</td><td>ELI MUNAWAROH</td></tr>
-                        <tr><td>17</td><td>FADHLAN EL FAUZI</td></tr>
-                        <tr><td>18</td><td>FAJAR ARGA ARDIANSYAH</td></tr>
-                        <tr><td>19</td><td>FALENTINUS WAIRIPITS</td></tr>
-                        <tr><td>20</td><td>FEBRI RIZKY DWI SAPUTRA</td></tr>
-                        <tr><td>21</td><td>FIKA</td></tr>
-                        <tr><td>22</td><td>HALIMATUS ZAHRO</td></tr>
-                        <tr><td>23</td><td>IFAN PRAS SETIAWAN</td></tr>
-                        <tr><td>24</td><td>JENI AULIA NURCAHYA</td></tr>
-                        <tr><td>25</td><td>M. ALI RIDHO</td></tr>
-                        <tr><td>26</td><td>MAYKO BINTANG SAPUTRA</td></tr>
-                        <tr><td>27</td><td>M. JHUVE DAVASYAH R.H</td></tr>
-                        <tr><td>28</td><td>MOCH ROIHAN SAPUTRA</td></tr>
-                        <tr><td>29</td><td>M. REZA</td></tr>
-                        <tr><td>30</td><td>M. RIZKY</td></tr>
-                        <tr><td>31</td><td>MUH. AL FARIZI</td></tr>
-                        <tr><td>32</td><td>QIAN ARIS AHMAD YANI</td></tr>
+                        <tr>
+                            <td>1</td>
+                            <td>ABDILLAH MUHANNAD AL FUZEA</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>AHMAD DWI ANDIKA PUTRA</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>ANANDA RESTU KURNIA SANDI</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>ANANDITA VINZA PURWANDINI</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>ANDRIAN SAPUTRI</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>AURA KASIH FARADITA</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>BAGAS TRI WIDIANTO</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>BAYU PUTRA YUDHA PRATAMA</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>BRYANSYAH HUTAMA PUTRA</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>CHOIRUL ANAM FIRMANSYAH</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>CINDY EKA MAHARDITA</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>CYNTHIA WANDARI JULIANA</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>DELA AULIA SINTYA DINI</td>
+                        </tr>
+                        <tr>
+                            <td>14</td>
+                            <td>DINA FEBRIANI</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>EKA APRILIA CAHYANI</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>ELI MUNAWAROH</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>FADHLAN EL FAUZI</td>
+                        </tr>
+                        <tr>
+                            <td>18</td>
+                            <td>FAJAR ARGA ARDIANSYAH</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>FALENTINUS WAIRIPITS</td>
+                        </tr>
+                        <tr>
+                            <td>20</td>
+                            <td>FEBRI RIZKY DWI SAPUTRA</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>FIKA</td>
+                        </tr>
+                        <tr>
+                            <td>22</td>
+                            <td>HALIMATUS ZAHRO</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>IFAN PRAS SETIAWAN</td>
+                        </tr>
+                        <tr>
+                            <td>24</td>
+                            <td>JENI AULIA NURCAHYA</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>M. ALI RIDHO</td>
+                        </tr>
+                        <tr>
+                            <td>26</td>
+                            <td>MAYKO BINTANG SAPUTRA</td>
+                        </tr>
+                        <tr>
+                            <td>27</td>
+                            <td>M. JHUVE DAVASYAH R.H</td>
+                        </tr>
+                        <tr>
+                            <td>28</td>
+                            <td>MOCH ROIHAN SAPUTRA</td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>M. REZA</td>
+                        </tr>
+                        <tr>
+                            <td>30</td>
+                            <td>M. RIZKY</td>
+                        </tr>
+                        <tr>
+                            <td>31</td>
+                            <td>MUH. AL FARIZI</td>
+                        </tr>
+                        <tr>
+                            <td>32</td>
+                            <td>QIAN ARIS AHMAD YANI</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -934,41 +1150,129 @@
                 <h2 class="section-title"><i class="fas fa-book"></i> Jadwal Pelajaran</h2>
             </div>
             
-            <!-- Jadwal pelajaran tetap sama -->
-            <div class="jadwal-hari fade-in"><div class="hari-header">SENIN</div><div class="jadwal-grid"><div class="mapel-item"><div class="mapel-nama">RPL</div></div><div class="mapel-item"><div class="mapel-nama">PPKN</div></div><div class="mapel-item"><div class="mapel-nama">Sejarah</div></div><div class="mapel-item"><div class="mapel-nama">RPL</div></div></div></div>
-            <div class="jadwal-hari fade-in-delay-1"><div class="hari-header">SELASA</div><div class="jadwal-grid"><div class="mapel-item"><div class="mapel-nama">RPL</div></div><div class="mapel-item"><div class="mapel-nama">Bhs Indonesia</div></div><div class="mapel-item"><div class="mapel-nama">RPL</div></div><div class="mapel-item"><div class="mapel-nama">Bahasa Inggris</div></div></div></div>
-            <div class="jadwal-hari fade-in-delay-2"><div class="hari-header">RABU</div><div class="jadwal-grid"><div class="mapel-item"><div class="mapel-nama">Bahasa Inggris</div></div><div class="mapel-item"><div class="mapel-nama">PKK</div></div><div class="mapel-item"><div class="mapel-nama">BP/BK</div></div><div class="mapel-item"><div class="mapel-nama">PAI</div></div></div></div>
-            <div class="jadwal-hari fade-in-delay-3"><div class="hari-header">KAMIS</div><div class="jadwal-grid"><div class="mapel-item"><div class="mapel-nama">Matematika</div></div><div class="mapel-item"><div class="mapel-nama">RPL</div></div><div class="mapel-item"><div class="mapel-nama">Bhs Arab</div></div><div class="mapel-item"><div class="mapel-nama">Penjaskes</div></div></div></div>
-            <div class="jadwal-hari fade-in"><div class="hari-header">JUMAT</div><div class="jadwal-grid"><div class="mapel-item"><div class="mapel-nama">Mapel Pilihan</div></div><div class="mapel-item"><div class="mapel-nama">RPL</div></div><div class="mapel-item"><div class="mapel-nama">BMW/Pramuka</div></div></div></div>
+            <!-- Senin -->
+            <div class="jadwal-hari fade-in">
+                <div class="hari-header">SENIN</div>
+                <div class="jadwal-grid">
+                    <div class="mapel-item">
+                        <div class="mapel-nama">RPL</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">PPKN</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">Sejarah</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">RPL</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Selasa -->
+            <div class="jadwal-hari fade-in-delay-1">
+                <div class="hari-header">SELASA</div>
+                <div class="jadwal-grid">
+                    <div class="mapel-item">
+                        <div class="mapel-nama">RPL</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">Bhs Indonesia</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">RPL</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">Bahasa Inggris</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rabu -->
+            <div class="jadwal-hari fade-in-delay-2">
+                <div class="hari-header">RABU</div>
+                <div class="jadwal-grid">
+                    <div class="mapel-item">
+                        <div class="mapel-nama">Bahasa Inggris</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">PKK</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">BP/BK</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">PAI</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kamis -->
+            <div class="jadwal-hari fade-in-delay-3">
+                <div class="hari-header">KAMIS</div>
+                <div class="jadwal-grid">
+                    <div class="mapel-item">
+                        <div class="mapel-nama">Matematika</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">RPL</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">Bhs Arab</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">Penjaskes</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jumat -->
+            <div class="jadwal-hari fade-in">
+                <div class="hari-header">JUMAT</div>
+                <div class="jadwal-grid">
+                    <div class="mapel-item">
+                        <div class="mapel-nama">Mapel Pilihan</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">RPL</div>
+                    </div>
+                    <div class="mapel-item">
+                        <div class="mapel-nama">BMW/Pramuka</div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Struktur Kelas - DIPERBAIKI DENGAN 4 BAGIAN UTAMA -->
+        <!-- Struktur Kelas -->
         <section id="struktur" class="section fade-in">
             <div class="section-header">
                 <h2 class="section-title"><i class="fas fa-sitemap"></i> Struktur Kelas</h2>
             </div>
             <div class="struktur-kelas">
-                <div class="struktur-utama">
-                    <!-- Wali Kelas -->
-                    <div class="struktur-item wali-kelas fade-in">
-                        <h3>Wali Kelas</h3>
-                        <p>Pak Fauzi</p>
-                    </div>
-                    
-                    <!-- Ketua Kelas -->
-                    <div class="struktur-item fade-in">
+                <div class="wali-kelas fade-in">
+                    <h3>Wali Kelas</h3>
+                    <p>Pak Fauzi</p>
+                </div>
+                <div class="ketua-kelas">
+                    <div class="ketua fade-in">
                         <h3>Ketua Kelas</h3>
                         <p>QIAN ARIS AHMAD YANI</p>
                     </div>
-                    
-                    <!-- Sekretaris -->
-                    <div class="struktur-item fade-in-delay-1">
+                    <div class="wakil fade-in-delay-1">
+                        <h3>Wakil Ketua</h3>
+                        <p>CYNTHIA WANDARI JULIANA</p>
+                    </div>
+                    <div class="wakil fade-in-delay-2">
+                        <h3>Ketua Gank</h3>
+                        <p>IFAN PRAS SETIAWAN</p>
+                    </div>
+                </div>
+                <div class="seksi">
+                    <div class="seksi-card fade-in">
                         <h3>Sekretaris</h3>
                         <p>DELA AULIA SINTYA DINI</p>
                     </div>
-                    
-                    <!-- Bendahara -->
-                    <div class="struktur-item fade-in-delay-2">
+                    <div class="seksi-card fade-in-delay-1">
                         <h3>Bendahara</h3>
                         <p>AURA KASIH FARADITA</p>
                     </div>
@@ -983,16 +1287,39 @@
             <div class="footer-content">
                 <div class="footer-logo fade-in">
                     <i class="fas fa-rocket"></i>
-                    <span>SoftwoNexa</span>
+                    <span>FluxusNova</span>
                 </div>
-                <p class="fade-in-delay-1">Kelas XI RPL 2 | SMK Negeri 6 Jember</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/softtwo2_/" class="fade-in"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="fade-in-delay-1"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="fade-in-delay-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="fade-in-delay-3"><i class="fab fa-youtube"></i></a>
+                <p class="footer-text fade-in-delay-1">Kelas XI RPL 2 | SMK Negeri 6 Jember</p>
+                
+                <div class="footer-sections">
+                    <!-- Akun Kelas -->
+                    <div class="footer-section fade-in">
+                        <h3 class="footer-section-title">Akun Kelas</h3>
+                        <div class="support-links">
+                            <a href="https://www.instagram.com/softtwo2_" class="support-link">
+                                <i class="fab fa-instagram"></i>
+                                <span>@SOFTWARETWO</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Kritik & Saran -->
+                    <div class="footer-section fade-in-delay-1">
+                        <h3 class="footer-section-title">Kritik & Saran</h3>
+                        <div class="support-links">
+                            <a href="https://www.instagram.com/_rezxx1" class="support-link">
+                                <i class="fab fa-instagram"></i>
+                                <span>@Rezxx1</span>
+                            </a>
+                            <a href="https://wa.me/6285604047346?text=Halo%20saya%20ingin%20melaporkan%20bug/memberi%20saran%20untuk%20FluxusNova" class="support-link">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <p class="fade-in">&copy; 2025 SoftwoNexa</p>
+                
+                <p class="footer-text fade-in">&copy; 2025 FluxusNova</p>
             </div>
         </div>
     </footer>
@@ -1068,6 +1395,7 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    // Tambahkan kelas animasi berdasarkan posisi elemen
                     if (entry.target.classList.contains('section')) {
                         entry.target.classList.add('fade-in');
                     } else if (entry.target.classList.contains('card')) {
@@ -1078,7 +1406,13 @@
                         entry.target.classList.add('fade-in');
                     } else if (entry.target.classList.contains('mapel-item')) {
                         entry.target.classList.add('fade-in');
-                    } else if (entry.target.classList.contains('struktur-item')) {
+                    } else if (entry.target.classList.contains('wali-kelas')) {
+                        entry.target.classList.add('fade-in');
+                    } else if (entry.target.classList.contains('ketua')) {
+                        entry.target.classList.add('fade-in');
+                    } else if (entry.target.classList.contains('wakil')) {
+                        entry.target.classList.add('fade-in');
+                    } else if (entry.target.classList.contains('seksi-card')) {
                         entry.target.classList.add('fade-in');
                     }
                     
@@ -1089,24 +1423,46 @@
 
         // Observe elements that should animate on scroll
         document.addEventListener('DOMContentLoaded', () => {
-            const elementsToAnimate = document.querySelectorAll('.section, .card, .piket-card, .jadwal-hari, .mapel-item, .struktur-item');
+            const elementsToAnimate = document.querySelectorAll('.section, .card, .piket-card, .jadwal-hari, .mapel-item, .wali-kelas, .ketua, .wakil, .seksi-card');
             
             elementsToAnimate.forEach(el => {
                 observer.observe(el);
             });
             
-            // Buat bintang-bintang yang sederhana
-            const starsBackground = document.getElementById('starsBackground');
-            for (let i = 0; i < 80; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                star.style.width = `${Math.random() * 2 + 1}px`;
-                star.style.height = star.style.width;
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
-                star.style.opacity = Math.random() * 0.5 + 0.2;
-                starsBackground.appendChild(star);
-            }
+            // Tambahkan efek animasi khusus untuk beberapa elemen
+            const logo = document.querySelector('.logo i');
+            logo.addEventListener('mouseenter', () => {
+                logo.classList.add('rotate');
+            });
+            logo.addEventListener('mouseleave', () => {
+                logo.classList.remove('rotate');
+            });
+            
+            // Animasi untuk card dashboard saat hover
+            const dashboardCards = document.querySelectorAll('.dashboard-cards .card');
+            dashboardCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.classList.add('pulse');
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('pulse');
+                });
+            });
+            
+            // Animasi untuk tombol menu mobile
+            mobileMenuBtn.addEventListener('mouseenter', () => {
+                mobileMenuBtn.classList.add('bounce');
+            });
+            mobileMenuBtn.addEventListener('mouseleave', () => {
+                mobileMenuBtn.classList.remove('bounce');
+            });
+            
+            // Animasi untuk tabel data siswa
+            const tableRows = document.querySelectorAll('#siswa tbody tr');
+            tableRows.forEach((row, index) => {
+                row.style.animationDelay = `${index * 0.05}s`;
+                row.classList.add('fade-in');
+            });
         });
     </script>
 </body>
